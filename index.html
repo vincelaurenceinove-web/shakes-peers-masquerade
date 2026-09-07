@@ -319,37 +319,33 @@
   text-transform: uppercase;
   font-weight: 600;
   white-space: nowrap;
+
 }
 
-  .memory-wall {
-  padding: 4rem 0;
+.memory-wall {
+  padding: 4rem 1.5rem;
   text-align: center;
 }
 
-.memory-carousel {
-  display: flex;
-  gap: 1.2rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 2rem 1.5rem;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.memory-carousel::-webkit-scrollbar {
-  display: none;
+.memory-stack {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16 / 10;
+  margin: 2.5rem auto 0;
 }
 
 .memory-card {
-  flex: 0 0 85%;
-  max-width: 500px;
-  scroll-snap-align: center;
+  position: absolute;
+  inset: 0;
   background: var(--charcoal);
   border: 1px solid var(--gold-dim);
   padding: 1rem;
-  aspect-ratio: 16 / 10;
   display: flex;
   flex-direction: column;
+  cursor: grab;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  will-change: transform;
 }
 
 .memory-card img {
@@ -358,6 +354,7 @@
   object-fit: cover;
   filter: grayscale(15%);
   flex: 1;
+  pointer-events: none;
 }
 
 .memory-card-double .double-photo {
@@ -377,12 +374,13 @@
   margin-top: 0.8rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  pointer-events: none;
 }
 
 .swipe-hint {
   font-size: 0.75rem;
   color: var(--ivory-dim);
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -611,13 +609,14 @@
       <img src=Year-end 2022.jpg" alt="Christmas 2022">
       <p>Christmas 2022</p>
     </div>
-    <div class="memory-card memory-card-double">
-      <div class="double-photo">
-        <img src="Year-end 2023-Women.jpg" alt="Christmas 2023">
-        <img src="Year-end2022-men.jpg" alt="Christmas 2023">
-      </div>
-      <p>Christmas 2023</p>
-    </div>
+    <div class="memory-card">
+  <img src="assets/christmas-2023-1.jpg" alt="Christmas 2023">
+  <p>Christmas 2023</p>
+</div>
+<div class="memory-card">
+  <img src="assets/christmas-2023-2.jpg" alt="Christmas 2023">
+  <p>Christmas 2023</p>
+</div>
     <div class="memory-card">
       <img src="Year-end 2024.jpg" alt="Christmas 2024">
       <p>Christmas 2024</p>
@@ -681,6 +680,70 @@ programItems.forEach(el => programObserver.observe(el));
       document.querySelector(".countdown-grid").innerHTML = "<p>The gala has started</p>";
     }
   }, 1000);
+</script>
+
+<script>
+  const stack = document.getElementById("memoryStack");
+  const cards = Array.from(stack.querySelectorAll(".memory-card"));
+
+  cards.forEach((card, i) => {
+    card.style.zIndex = cards.length - i;
+    card.style.transform = `scale(${1 - i * 0.04}) translateY(${i * 10}px)`;
+    card.style.opacity = i > 2 ? 0 : 1;
+  });
+
+  let startX = 0;
+  let currentCard = null;
+  let isDragging = false;
+
+  function restack() {
+    cards.forEach((card, i) => {
+      card.style.transition = "transform 0.4s ease, opacity 0.4s ease";
+      card.style.transform = `scale(${1 - i * 0.04}) translateY(${i * 10}px) rotate(0deg)`;
+      card.style.opacity = i > 2 ? 0 : 1;
+      card.style.zIndex = cards.length - i;
+    });
+  }
+
+  function bindCard(card) {
+    card.addEventListener("pointerdown", (e) => {
+      isDragging = true;
+      startX = e.clientX;
+      currentCard = card;
+      card.style.transition = "none";
+    });
+
+    card.addEventListener("pointermove", (e) => {
+      if (!isDragging || currentCard !== card) return;
+      const deltaX = e.clientX - startX;
+      card.style.transform = `translateX(${deltaX}px) rotate(${deltaX / 20}deg)`;
+    });
+
+    card.addEventListener("pointerup", (e) => {
+      if (!isDragging || currentCard !== card) return;
+      isDragging = false;
+      const deltaX = e.clientX - startX;
+
+      if (Math.abs(deltaX) > 100) {
+        const direction = deltaX > 0 ? 1 : -1;
+        card.style.transition = "transform 0.4s ease, opacity 0.4s ease";
+        card.style.transform = `translateX(${direction * 600}px) rotate(${direction * 30}deg)`;
+        card.style.opacity = 0;
+
+        setTimeout(() => {
+          stack.appendChild(card);
+          cards.splice(cards.indexOf(card), 1);
+          cards.push(card);
+          restack();
+        }, 400);
+      } else {
+        card.style.transition = "transform 0.3s ease";
+        card.style.transform = `translateX(0) rotate(0deg)`;
+      }
+    });
+  }
+
+  cards.forEach(bindCard);
 </script>
   
 </body>
