@@ -322,14 +322,12 @@
 
   /* Host section */
   .host-section {
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 4rem 2rem;
 }
-
 .host-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -340,26 +338,23 @@
   width: 100%;
   margin: 0 auto;
 }
-
 .host-cell {
   background: var(--black);
   padding: 2.4rem 1.6rem;
   text-align: center;
 }
-
 .host-cell .eyebrow {
   margin-bottom: 0.7rem;
 }
-
 .host-name {
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
   font-size: 1.5rem;
   color: var(--gold-bright);
 }
-  @media (max-width:560px){
-    .host-grid{ grid-template-columns:1fr; }
-  }
+@media (max-width:560px){
+  .host-grid{ grid-template-columns:1fr; }
+}
 
   /* Footer */
   footer{
@@ -553,7 +548,6 @@
     </div>
   </div>
 </section>
-
 <footer class="reveal">
   <img class="mask-small" src="logo.png" alt="Shakes Peers Logo" style="width:54px; opacity: 0.8;">
   <img class="mask-small" src="logo-jr.png" alt="Shakes Peers Logo Jr." style="width:54px; opacity: 0.8;">
