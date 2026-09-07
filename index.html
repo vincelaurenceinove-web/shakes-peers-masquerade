@@ -266,54 +266,33 @@
     margin-top:0.15rem;
   }
 
-  .countdown {
-  padding: 5rem 1.5rem;
-  text-align: center;
-}
-
-.countdown .label {
-  letter-spacing: 0.3em;
-  font-size: 0.75rem;
-  color: var(--gold-dim);
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.countdown h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
-  color: var(--ivory);
-  margin-bottom: 3rem;
-  font-weight: 500;
-}
-
-.countdown-grid {
+ .countdown-grid {
   display: flex;
   justify-content: center;
-  gap: 1.2rem;
+  align-items: center;
+  gap: 0;
   flex-wrap: wrap;
 }
 
 .countdown-block {
-  position: relative;
   text-align: center;
-  padding: 1.5rem 1.3rem;
-  min-width: 90px;
-  border: 1px solid rgba(201,162,77,0.35);
-  background: linear-gradient(180deg, rgba(201,162,77,0.05), transparent);
-  border-radius: 4px;
-  box-shadow: 0 0 20px rgba(201,162,77,0.08);
-  transition: box-shadow 0.4s ease, border-color 0.4s ease;
+  padding: 0 2.2rem;
+  position: relative;
 }
 
-.countdown-block:hover {
-  border-color: var(--gold-bright);
-  box-shadow: 0 0 30px rgba(201,162,77,0.2);
+.countdown-block:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: rgba(201,162,77,0.3);
 }
 
 .countdown-block span {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 2.8rem;
+  font-size: 3.2rem;
   color: var(--gold-bright);
   font-weight: 600;
   display: block;
@@ -323,9 +302,9 @@
 
 .countdown-block p {
   font-size: 0.7rem;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.2em;
   color: var(--ivory-dim);
-  margin-top: 0.7rem;
+  margin-top: 0.8rem;
   text-transform: uppercase;
 }
 
