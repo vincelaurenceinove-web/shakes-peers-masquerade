@@ -321,6 +321,54 @@
   white-space: nowrap;
 }
 
+.memory-wall {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.memory-card {
+  background: var(--charcoal);
+  border: 1px solid var(--gold-dim);
+  padding: 0.8rem;
+  transform: rotate(-1deg);
+}
+
+.memory-card:nth-child(even) {
+  transform: rotate(1deg);
+}
+
+.memory-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  filter: grayscale(15%);
+}
+.double-photo {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.double-photo img {
+  width: 50%;
+  height: 220px;
+  object-fit: cover;
+  filter: grayscale(15%);
+}
+
+.memory-card p {
+  font-size: 0.9rem;
+  color: var(--gold-bright);
+  margin-top: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
   /* Host section */
   .host-grid{
     display:grid;
@@ -534,6 +582,32 @@
     <div class="host-cell">
       <p class="eyebrow">Master of Ceremony</p>
       <p class="host-name">Frinze Ferion Estrella</p>
+    </div>
+  </div>
+</section>
+
+<section class="memory-wall">
+  <p class="label">FIVE YEARS TOGETHER</p>
+  <h2>Christmas Through The Years</h2>
+  <div class="memory-grid">
+    <div class="memory-card">
+      <img src="Year-end 2022.jpg" alt="Christmas 2022">
+      <p>Christmas 2022</p>
+    </div>
+    <div class="memory-card memory-card-double">
+  <div class="double-photo">
+    <img src="Year-end2022-men.jpg" alt="Christmas 2023">
+    <img src="aYear-end 2023 - Women.jpg" alt="Christmas 2023">
+  </div>
+  <p>Christmas 2023</p>
+</div>
+    <div class="memory-card">
+      <img src="Year-end 2024.jpg" alt="Christmas 2024">
+      <p>Christmas 2024</p>
+    </div>
+    <div class="memory-card">
+      <img src="Year-end 2025.jpg" alt="Christmas 2025">
+      <p>Christmas 2025</p>
     </div>
   </div>
 </section>
