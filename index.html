@@ -428,28 +428,24 @@
 <section class="countdown">
   <p class="label">COUNTING DOWN TO</p>
   <h2>The Night Begins</h2>
-  <div class "countdown-grid"
-    <div class="countdown-block">
-      <span id="months">00</span>
-      <p>Months</p>
-    </div>
-    <div class="countdown-block">
-      <span id="days">00</span>
-      <p>Days</p>
-    </div>
-    <div class="countdown-block">
-      <span id="hours">00</span>
-      <p>Hours</p>
-    </div>
-    <div class="countdown-block">
-      <span id="minutes">00</span>
-      <p>Minutes</p>
-    </div>
-    <div class="countdown-block">
-      <span id="seconds">00</span>
-      <p>Seconds</p>
-    </div>
+  <div class="countdown-grid">
+  <div class="countdown-block">
+    <span id="months">00</span>
+    <p>Months</p>
   </div>
+  <div class="countdown-block">
+    <span id="days">00</span>
+    <p>Days</p>
+  </div>
+  <div class="countdown-block">
+    <span id="minutes">00</span>
+    <p>Minutes</p>
+  </div>
+  <div class="countdown-block">
+    <span id="seconds">00</span>
+    <p>Seconds</p>
+  </div>
+</div>
 </section>
   
 <section style="max-width:700px; margin:0 auto; padding:5rem 1.5rem; font-family:'EB Garamond', serif; color:#ede6d3;">
@@ -561,6 +557,7 @@ programItems.forEach(el => programObserver.observe(el));
 
     document.getElementById("months").textContent = String(months).padStart(2, "0");
     document.getElementById("days").textContent = String(days).padStart(2, "0");
+    document.getElementById("hours").textContent = String(hours).padStart(2, "0");
     document.getElementById("minutes").textContent = String(minutes).padStart(2, "0");
     document.getElementById("seconds").textContent = String(seconds).padStart(2, "0");
 
