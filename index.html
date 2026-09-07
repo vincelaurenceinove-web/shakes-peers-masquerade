@@ -321,25 +321,42 @@
   white-space: nowrap;
 
   /* Host section */
-  .host-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:1px;
-    background:rgba(201,162,77,0.18);
-    border:1px solid rgba(201,162,77,0.18);
-  }
-  .host-cell{
-    background:var(--black);
-    padding:2.4rem 1.6rem;
-    text-align:center;
-  }
-  .host-cell .eyebrow{ margin-bottom:0.7rem; }
-  .host-name{
-    font-family:'Cormorant Garamond', serif;
-    font-weight:600;
-    font-size:1.5rem;
-    color:var(--gold-bright);
-  }
+  .host-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.host-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(201,162,77,0.18);
+  border: 1px solid rgba(201,162,77,0.18);
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.host-cell {
+  background: var(--black);
+  padding: 2.4rem 1.6rem;
+  text-align: center;
+}
+
+.host-cell .eyebrow {
+  margin-bottom: 0.7rem;
+}
+
+.host-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--gold-bright);
+}
   @media (max-width:560px){
     .host-grid{ grid-template-columns:1fr; }
   }
@@ -524,7 +541,7 @@
   </svg>
 </div>
 
-<section class="reveal" id="host">
+<section class="host-section">
   <div class="host-grid">
     <div class="host-cell">
       <p class="eyebrow">Hosted By</p>
