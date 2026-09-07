@@ -344,7 +344,24 @@
   font-weight: 600;
   white-space: nowrap;
 
- 
+ .host-card{
+  background:linear-gradient(180deg, var(--charcoal), rgba(21,18,16,0.4));
+  border:1px solid rgba(201,162,77,0.22);
+  border-radius:2px;
+  padding:2.6rem 2rem;
+  position:relative;
+  max-width:700px;
+  margin:0 auto;
+}
+.host-card::before, .host-card::after{
+  content:"";
+  position:absolute;
+  width:26px; height:26px;
+  border:1px solid var(--gold-dim);
+}
+.host-card::before{ top:8px; left:8px; border-right:none; border-bottom:none; }
+.host-card::after{ bottom:8px; right:8px; border-left:none; border-top:none; }
+
 
   /* Footer */
 footer{
@@ -520,14 +537,16 @@ footer .fine{
 </div>
 
 <section class="host-section">
-  <div class="host-grid">
-    <div class="host-cell">
-      <p class="eyebrow">Hosted By</p>
-      <p class="host-name">Shakes Peers</p>
-    </div>
-    <div class="host-cell">
-      <p class="eyebrow">Master of Ceremony</p>
-      <p class="host-name">Frinze Ferion Estrella</p>
+  <div class="host-card">
+    <div class="host-grid">
+      <div class="host-cell">
+        <p class="eyebrow">Hosted By</p>
+        <p class="host-name">Shakes Peers</p>
+      </div>
+      <div class="host-cell">
+        <p class="eyebrow">Master of Ceremony</p>
+        <p class="host-name">Frinze Ferion Estrella</p>
+      </div>
     </div>
   </div>
 </section>
