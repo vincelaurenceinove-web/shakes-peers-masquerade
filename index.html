@@ -327,9 +327,7 @@
 }
 
 .memory-carousel {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
+  display: flex;
   gap: 1.2rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -364,7 +362,6 @@
 
 .memory-card-double .double-photo {
   display: flex;
-  flex-direction: row;
   gap: 0.5rem;
   flex: 1;
   height: 100%;
@@ -372,13 +369,20 @@
 
 .memory-card-double .double-photo img {
   width: 50%;
-  height: 100%;
 }
 
 .memory-card p {
   font-size: 0.9rem;
   color: var(--gold-bright);
   margin-top: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.swipe-hint {
+  font-size: 0.75rem;
+  color: var(--ivory-dim);
+  margin-top: 1rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
