@@ -357,20 +357,10 @@
 }
 
   /* Footer */
-  footer{
+footer{
   text-align:center;
   padding:4rem 1.5rem 3.5rem;
   color:var(--ivory-dim);
-}
-footer .footer-logos{
-  display:flex;
-  justify-content:center;
-  gap:1.2rem;
-  margin-bottom:1rem;
-}
-footer .mask-small{
-  width:54px;
-  opacity:0.8;
 }
 footer .flourish{
   width:120px;
@@ -394,6 +384,7 @@ footer .fine{
   text-transform:uppercase;
   color:var(--gold-dim);
 }
+
 </style>
 </head>
 <body>
@@ -566,11 +557,6 @@ footer .fine{
   </div>
 </section>
 <footer class="reveal">
-  <div class="footer-logos">
-    <img class="mask-small" src="logo.png" alt="Shakes Peers Logo">
-    <img class="mask-small" src="logo-jr.png" alt="Shakes Peers Logo Jr.">
-  </div>
-
   <svg class="flourish" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
     <path d="M2 70 C 2 30, 40 8, 100 8 C 160 8, 198 30, 198 70 C 198 95, 175 100, 150 92 C 130 86, 122 70, 100 70 C 78 70, 70 86, 50 92 C 25 100, 2 95, 2 70 Z"/>
   </svg>
@@ -578,6 +564,7 @@ footer .fine{
   <p>Five Years of Friendship. One night of mystery. A lifetime of memories.</p>
   <p class="fine">Shakes Peers &middot; All Rights Reserved &middot; 2026</p>
 </footer>
+
 <script>
   const items = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
