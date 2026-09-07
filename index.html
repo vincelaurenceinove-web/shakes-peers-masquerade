@@ -372,6 +372,17 @@
   width: 50%;
 }
 
+  .memory-carousel {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 2rem 1.5rem;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
 .memory-card p {
   font-size: 0.9rem;
   color: var(--gold-bright);
